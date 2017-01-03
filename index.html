@@ -22,16 +22,20 @@
 
     <!-- Navbar include -->
     <script src="js/jquery.js"></script> 
-    <script> 
-    $(function(){
-      $("#navigation").load("navbar.html"); 
-    });
-    </script> 
+    <script>
+      $(function(){
+        var includes = $('[data-include]');
+        jQuery.each(includes, function(){
+          var file = 'views/' + $(this).data('include') + '.html';
+          $(this).load(file);
+        });
+      });
+    </script>
 </head>
 
 <body>
     <!-- Navbar -->
-    <div id="navigation"></div>
+    <div data-include="navbar"></div>
 
     <!-- Page Content -->
     <div class="container">
@@ -53,34 +57,7 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
 
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-10 col-lg-offset-1 text-center">
-                    <ul class="list-unstyled">
-                        <li><i class="fa fa-phone fa-fw"></i> (060) 815-5705</li>
-                        <li><i class="fa fa-envelope-o fa-fw"></i> <a href="mailto:ujonathanalp@gmail.com">ujonathanalp@gmail.com</a>
-                        </li>
-                    </ul>
-                    <br>
-                    <ul class="list-inline">
-                        <li>
-                            <a href="https://www.facebook.com/dhowene"><i class="fa fa-facebook fa-fw fa-3x"></i></a>
-                        </li>
-                        <li>
-                            <a href="https://github.com/MercuryHunter"><i class="fa fa-github fa-fw fa-3x"></i></a>
-                        </li>
-                        <li>
-                            <a href="https://za.linkedin.com/in/ural-jonathan-alp-924a69119"><i class="fa fa-linkedin fa-fw fa-3x"></i></a>
-                        </li>
-                    </ul>
-                    <hr class="small">
-                    <p class="text-muted">Copyright &copy; Jonathan Alp - 2016</p>
-                </div>
-            </div>
-        </div>
-    </footer>
-
+    <div data-include="footer"></div>
 </body>
 
 </html>
